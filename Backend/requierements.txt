@@ -1,0 +1,10 @@
+torch
+torchvision
+torchaudio
+transformers
+split-folders
+Flask
+Flask-Cors
+Pillow
+numpy
+gunicorn
