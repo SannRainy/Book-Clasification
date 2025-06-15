@@ -2,5 +2,5 @@
 
 /venv
 
-class_names.txt
-cnn_tea_disease_classifier.pth
+*.txt
+*.pth
