@@ -90,6 +90,24 @@ export default function HomePage() {
     }
   };
 
+  // Component untuk menampilkan list dengan icon
+  const InfoList = ({ title, items, icon }) => (
+    <div className="bg-white/60 backdrop-blur-sm rounded-xl p-6 shadow-lg border border-white/30">
+      <h4 className="text-xl font-bold text-gray-700 mb-4 flex items-center space-x-2">
+        <span className="text-2xl">{icon}</span>
+        <span>{title}</span>
+      </h4>
+      <ul className="space-y-3">
+        {items.map((item, index) => (
+          <li key={index} className="flex items-start space-x-3 text-gray-600">
+            <span className="w-2 h-2 bg-emerald-400 rounded-full mt-2 flex-shrink-0"></span>
+            <span className="leading-relaxed">{item}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+
   return (
     <main className="min-h-screen bg-gradient-to-br from-emerald-50 via-teal-50 to-green-100 relative overflow-hidden">
       {/* Background Decorative Elements */}
@@ -236,9 +254,9 @@ export default function HomePage() {
 
           {/* Results Display */}
           {result && !error && (
-            <div className="transform transition-all duration-700 animate-fadeIn">
+            <div className="transform transition-all duration-700 animate-fadeIn space-y-8">
+              {/* Hasil Prediksi */}
               <div className="p-8 bg-gradient-to-br from-emerald-50 via-green-50 to-teal-50 rounded-2xl border border-emerald-200/50 shadow-xl relative overflow-hidden">
-                
                 {/* Background decoration */}
                 <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-emerald-100/50 to-transparent rounded-full blur-2xl"></div>
                 <div className="absolute bottom-0 left-0 w-24 h-24 bg-gradient-to-tr from-green-100/50 to-transparent rounded-full blur-xl"></div>
@@ -252,9 +270,10 @@ export default function HomePage() {
                     <div className="w-20 h-1 bg-gradient-to-r from-emerald-400 to-green-500 rounded-full mx-auto"></div>
                   </div>
                   
+                  {/* nama penyakit/hama */}
                   <div className="space-y-4">
                     <p className="text-4xl sm:text-5xl lg:text-6xl font-bold bg-gradient-to-r from-emerald-600 to-green-600 bg-clip-text text-transparent capitalize animate-pulse">
-                      {result.prediction.replace(/_/g, ' ')}
+                      {result.disease_info?.name || result.prediction.replace(/_/g, ' ')}
                     </p>
                     
                     {/* Confidence Bar */}
@@ -286,6 +305,96 @@ export default function HomePage() {
                   </div>
                 </div>
               </div>
+
+              {/* Informasi Detail Penyakit */}
+              {result.disease_info && (
+                <div className="space-y-6">
+                  {/* Deskripsi */}
+                  <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-2xl p-8 shadow-xl border border-blue-200/50">
+                    <h3 className="text-2xl font-bold text-gray-700 mb-4 flex items-center space-x-2">
+                      <span className="text-3xl">📋</span>
+                      <span>Deskripsi Penyakit</span>
+                    </h3>
+                    <p className="text-gray-600 leading-relaxed text-lg bg-white/60 backdrop-blur-sm rounded-xl p-6 shadow-md border border-white/30">
+                      {result.disease_info.description}
+                    </p>
+                  </div>
+
+                  {/* Grid untuk informasi detail */}
+                  <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                    {/* Gejala */}
+                    <InfoList 
+                      title="Gejala-gejala" 
+                      items={result.disease_info.symptoms} 
+                      icon="🔍" 
+                    />
+
+                    {/* Penyebab */}
+                    <InfoList 
+                      title="Penyebab" 
+                      items={result.disease_info.causes} 
+                      icon="⚠️" 
+                    />
+                  </div>
+
+                  {/* Perawatan dan Pencegahan */}
+                  <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                    {/* Cara Mengatasi */}
+                    <div className="bg-gradient-to-br from-green-50 to-emerald-50 rounded-xl p-6 shadow-lg border border-green-200/50">
+                      <h4 className="text-xl font-bold text-gray-700 mb-4 flex items-center space-x-2">
+                        <span className="text-2xl">💊</span>
+                        <span>Cara Mengatasi</span>
+                      </h4>
+                      <ul className="space-y-3">
+                        {result.disease_info.treatment.map((item, index) => (
+                          <li key={index} className="flex items-start space-x-3 text-gray-600">
+                            <span className="w-6 h-6 bg-green-500 text-white rounded-full flex items-center justify-center text-sm font-bold flex-shrink-0 mt-0.5">
+                              {index + 1}
+                            </span>
+                            <span className="leading-relaxed">{item}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+
+                    {/* Pencegahan */}
+                    <div className="bg-gradient-to-br from-amber-50 to-yellow-50 rounded-xl p-6 shadow-lg border border-amber-200/50">
+                      <h4 className="text-xl font-bold text-gray-700 mb-4 flex items-center space-x-2">
+                        <span className="text-2xl">🛡️</span>
+                        <span>Pencegahan</span>
+                      </h4>
+                      <ul className="space-y-3">
+                        {result.disease_info.prevention.map((item, index) => (
+                          <li key={index} className="flex items-start space-x-3 text-gray-600">
+                            <span className="w-6 h-6 bg-amber-500 text-white rounded-full flex items-center justify-center text-sm font-bold flex-shrink-0 mt-0.5">
+                              {index + 1}
+                            </span>
+                            <span className="leading-relaxed">{item}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+
+                  {/* Peringatan */}
+                  <div className="bg-gradient-to-r from-orange-50 to-red-50 border-l-4 border-orange-400 rounded-xl p-6 shadow-lg">
+                    <div className="flex items-start space-x-3">
+                      <div className="flex-shrink-0">
+                        <svg className="w-6 h-6 text-orange-400" fill="currentColor" viewBox="0 0 20 20">
+                          <path fillRule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clipRule="evenodd" />
+                        </svg>
+                      </div>
+                      <div>
+                        <h4 className="text-lg font-semibold text-orange-700 mb-2">⚠️ Penting untuk Diperhatikan</h4>
+                        <p className="text-orange-600 leading-relaxed">
+                          Hasil klasifikasi ini sebagai panduan awal. Untuk diagnosis yang lebih akurat dan penanganan yang tepat, 
+                          konsultasikan dengan ahli pertanian atau pakar penyakit tanaman setempat.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              )}
             </div>
           )}
 
