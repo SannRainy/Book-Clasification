@@ -14,7 +14,7 @@ CORS(app)
 # --- Database Informasi Penyakit ---
 DISEASE_INFO = {
     'anthracnose': {
-        'name': 'Antraknosa',
+        'name': 'Antraknosa (anthracnose)',
         'description': 'Penyakit jamur yang menyebabkan bercak coklat kehitaman pada daun teh dengan tepi yang jelas. Penyakit ini dapat menyebabkan daun gugur prematur dan menurunkan kualitas pucuk teh.',
         'symptoms': [
             'Bercak coklat kehitaman pada daun',
@@ -44,7 +44,7 @@ DISEASE_INFO = {
         ]
     },
     'algal leaf': {
-        'name': 'Bercak Alga',
+        'name': 'Bercak Alga (algal leaf)',
         'description': 'Infeksi yang disebabkan oleh alga Cephaleuros virescens yang membentuk bercak orange-kemerahan pada permukaan daun. Penyakit ini umum terjadi di daerah dengan kelembaban tinggi.',
         'symptoms': [
             'Bercak orange hingga kemerahan pada daun',
@@ -74,7 +74,7 @@ DISEASE_INFO = {
         ]
     },
     'bird eye spot': {
-        'name': 'Bercak Mata burung',
+        'name': 'Bercak Mata burung (bird eye spot)',
         'description': 'Penyakit jamur yang ditandai dengan bercak bulat kecil dengan pusat berwarna abu-abu dan tepi coklat gelap, menyerupai mata burung. Disebabkan oleh jamur Cercospora theae.',
         'symptoms': [
             'Bercak bulat kecil dengan pusat abu-abu',
@@ -104,7 +104,7 @@ DISEASE_INFO = {
         ]
     },
     'brown blight': {
-        'name': 'Hawar Coklat',
+        'name': 'Hawar Coklat (brown blight)',
         'description': 'Penyakit serius yang disebabkan oleh jamur Colletotrichum camelliae, menyerang pucuk dan daun muda teh, menyebabkan kerugian ekonomi yang signifikan.',
         'symptoms': [
             'Bercak coklat pada pucuk dan daun muda',
@@ -134,7 +134,7 @@ DISEASE_INFO = {
         ]
     },
     'gray light': {
-        'name': 'Bercak Abu-abu Terang',
+        'name': 'Bercak Abu-abu Terang (gray light)',
         'description': 'Penyakit yang menyebabkan bercak berwarna abu-abu terang pada daun teh, umumnya disebabkan oleh kondisi lingkungan yang tidak optimal dan infeksi jamur ringan.',
         'symptoms': [
             'Bercak abu-abu terang pada permukaan daun',
@@ -164,7 +164,7 @@ DISEASE_INFO = {
         ]
     },
     'healthy': {
-        'name': 'Daun Sehat',
+        'name': 'Daun Sehat (healthy)',
         'description': 'Daun teh dalam kondisi sehat dengan warna hijau normal, tidak ada tanda-tanda penyakit atau stres. Pertahankan kondisi ini dengan perawatan yang tepat.',
         'symptoms': [
             'Warna hijau segar dan merata',
@@ -194,7 +194,7 @@ DISEASE_INFO = {
         ]
     },
     'red leaf spot': {
-        'name': 'Bercak Daun Merah',
+        'name': 'Bercak Daun Merah (red leaf spot)',
         'description': 'Penyakit yang ditandai dengan munculnya bercak-bercak merah pada daun teh, umumnya disebabkan oleh jamur atau stres fisiologis tanaman.',
         'symptoms': [
             'Bercak merah atau kemerahan pada daun',
@@ -224,7 +224,7 @@ DISEASE_INFO = {
         ]
     },
     'white spot': {
-        'name': 'Bercak Putih',
+        'name': 'Bercak Putih (white spot)',
         'description': 'Penyakit yang menyebabkan munculnya bercak-bercak putih pada daun teh, biasanya disebabkan oleh jamur atau kondisi lingkungan yang tidak mendukung.',
         'symptoms': [
             'Bercak putih atau putih keabuan pada daun',
