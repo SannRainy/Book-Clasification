@@ -47,7 +47,6 @@ function Navbar() {
               <h1 className="text-xl font-bold text-white drop-shadow-md">
                 TeaLeaf 
               </h1>
-              <p className="text-xs text-emerald-50/90">Klasifikasi Hama Daun Teh</p>
             </div>
           </div>
           

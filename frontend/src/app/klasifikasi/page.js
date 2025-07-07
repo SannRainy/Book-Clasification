@@ -499,7 +499,7 @@ export default function KlasifikasiPage() {
                 <div className="flex items-center justify-center h-full">
                   <div className="text-center text-gray-400 space-y-4">
                     <div className="text-6xl">🔬</div>
-                    <p className="text-xl font-semibold">Hasil analisis akan muncul di sini</p>
+                    <p className="text-xl font-semibold">Hasil analisis akan muncul di sini dan bisa di scrol</p>
                     <p className="text-sm">Upload gambar dan klik tombol klasifikasi</p>
                   </div>
                 </div>

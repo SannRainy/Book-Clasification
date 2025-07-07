@@ -3,7 +3,7 @@ export default function About() {
       {
         id: 1,
         name: "Krisna Satya Arisandy",
-        nim: "123456789",
+        nim: "2205101053",
         university: "Universitas PGRI Madiun",   
         email: "john.doe@example.com",
         linkedin: "https://linkedin.com/in/johndoe",
@@ -14,9 +14,9 @@ export default function About() {
         name: "Junioka Bayu Gionanda",      
         nim: "2205101060",
         university: "Universitas PGRI Madiun",
-        email: "jane.smith@example.com",
-        linkedin: "https://linkedin.com/in/janesmith",
-        github: "https://github.com/janesmith"
+        email: "okabayu12344@gmail.com",
+        linkedin: "https://www.linkedin.com/in/junioka-bayu-gionanda-unipma/",
+        github: "https://github.com/JuniokaBayu"
       },
       {
         id: 3,
@@ -29,9 +29,9 @@ export default function About() {
       },
       {
         id: 4,
-        name: "Natasya",
-        nim: "789123456",
-        university: "Universitas Negeri Malang",
+        name: "Natasya A S",
+        nim: "2205101110",
+        university: "Universitas PGRI Madiun",
         email: "sarah.wilson@example.com",
         linkedin: "https://linkedin.com/in/sarahwilson",
         github: "https://github.com/sarahwilson"
